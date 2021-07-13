@@ -28,6 +28,12 @@ RUN groupadd -g ${GROUP_ID} josh && \
 
 WORKDIR /home/josh
 
-VOLUME [ "/home/josh" ]
+COPY etc/setup.sh /home/josh/setup.sh
+
+RUN mkdir /home/josh/._
+
+VOLUME [ "/home/josh/._" ]
 
 USER josh
+
+ENTRYPOINT ["/home/josh/setup.sh"]

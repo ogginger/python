@@ -1,5 +1,4 @@
 #!/bin/bash
-
 docker stop python
 docker rm python
-docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v $(pwd):/home/josh --net=host --name python python python3.8 -m virtualenv $1 -p 3.8
+docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v $(pwd):/home/josh/._ --name python python $(pwd)
